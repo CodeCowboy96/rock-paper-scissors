@@ -10,9 +10,20 @@ function getComputerChoice() {    // Get computer to make a random choice of roc
 }
 console.log (getComputerChoice())
 
-function getHumanChoice(answer) {             // find a way to record human input on per round basis
-    
+
+function getHumanChoice() {             // find a way to record human input on per round basis
+    let choice;
+        while (true) {
+            choice=prompt("Please enter rock, paper, or scissors").toLowerCase();
+
+            if (choice === "rock" || choice === "paper" || choice === "scissors") {
+                return choice;
+            }
+            alert ("Invalid input! Please try again.")       // Needs to trigger invalid statement if user answer is not rock, paper or scissors
+        }
 }
+console.log (getHumanChoice())
+
 
 // find a way to keep score
     // Create logic loop for paper beats rock, rock beats scissors, and scissors beats paper
