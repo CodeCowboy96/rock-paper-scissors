@@ -24,28 +24,31 @@ function getHumanChoice() {             // find a way to record human input on p
         }
 }
 
+let humanScore = 0
+let computerScore = 0  // find a way to keep score
 
 
-function playRound(humanChoice, computerChoice) {
-    if (humanChoice === computerChoice) {
+function playRound(humanChoice, computerChoice) {        // Create logic loop for paper beats rock, rock beats scissors, and scissors beats paper
+    if (humanChoice === computerChoice) {                   // Compare human input vs computer choice and determine winner 
         return "It's a tie.";
     }
     if ((humanChoice === "rock" && computerChoice === "scissors") ||
         (humanChoice === "paper" && computerChoice === "rock") ||
         (humanChoice === "scissors" && computerChoice === "paper")) {
-        return `You win! ${humanChoice} beats ${computerChoice}`;
+        return humanScore++, `You win! ${humanChoice} beats ${computerChoice}`;
+        
     } else {
-        return `You lose! ${computerChoice} beats ${humanChoice}`;
+        return computerScore++,`You lose! ${computerChoice} beats ${humanChoice}`;
+        
+        
     }
 }
-  
+
   const humanSelection = getHumanChoice();
   const computerSelection = getComputerChoice();
+  
   console.log (computerSelection)
-  playRound(humanSelection, computerSelection);
-  console.log (playRound(humanSelection,computerSelection))
-    
+  console.log (playRound(humanSelection, computerSelection))
 
-// find a way to keep score
-    // Create logic loop for paper beats rock, rock beats scissors, and scissors beats paper
-                    // Compare human input vs computer choice and determine winner 
+
+                    
