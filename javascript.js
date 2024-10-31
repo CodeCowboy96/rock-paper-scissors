@@ -8,7 +8,8 @@ function getComputerChoice() {    // Get computer to make a random choice of roc
         return "scissors";
     }                            
 }
-console.log (getComputerChoice())
+
+
 
 
 function getHumanChoice() {             // find a way to record human input on per round basis
@@ -22,9 +23,29 @@ function getHumanChoice() {             // find a way to record human input on p
             alert ("Invalid input! Please try again.")       // Needs to trigger invalid statement if user answer is not rock, paper or scissors
         }
 }
-console.log (getHumanChoice())
 
+
+
+function playRound(humanChoice, computerChoice) {
+    if (humanChoice === computerChoice) {
+        return "It's a tie.";
+    }
+    if ((humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")) {
+        return `You win! ${humanChoice} beats ${computerChoice}`;
+    } else {
+        return `You lose! ${computerChoice} beats ${humanChoice}`;
+    }
+}
+  
+  const humanSelection = getHumanChoice();
+  const computerSelection = getComputerChoice();
+  console.log (computerSelection)
+  playRound(humanSelection, computerSelection);
+  console.log (playRound(humanSelection,computerSelection))
+    
 
 // find a way to keep score
     // Create logic loop for paper beats rock, rock beats scissors, and scissors beats paper
-    // Compare human input vs computer choice and determine winner  
+                    // Compare human input vs computer choice and determine winner 
