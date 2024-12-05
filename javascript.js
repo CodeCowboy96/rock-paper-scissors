@@ -44,11 +44,32 @@ function playRound(humanChoice, computerChoice) {        // Create logic loop fo
     }
 }
 
-  const humanSelection = getHumanChoice();
-  const computerSelection = getComputerChoice();
-  
-  console.log (computerSelection)
-  console.log (playRound(humanSelection, computerSelection))
+//call the playround function 5 times to play game
+  function playGame() {
+    humanScore = 0;
+    computerScore = 0;
+    
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        
+        console.log(`Round ${i + 1}:`);
+        console.log(`Computer chose: ${computerSelection}`);
+        console.log(playRound(humanSelection, computerSelection));
+        console.log(`Current score - You: ${humanScore}, Computer: ${computerScore}`);
+        console.log('------------------------');
+    }
+    
+    console.log("Game Over!");
+    if (humanScore > computerScore) {
+        console.log(`You win the game! Final score: You ${humanScore}, Computer ${computerScore}`);
+    } else if (computerScore > humanScore) {
+        console.log(`Computer wins the game! Final score: Computer ${computerScore}, You ${humanScore}`);
+    } else {
+        console.log(`It's a tie! Final score: You ${humanScore}, Computer ${computerScore}`);
+    }
+}
 
-
+// Call the function to start the game
+playGame();
                     
